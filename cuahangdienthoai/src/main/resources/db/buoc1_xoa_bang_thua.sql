@@ -1,0 +1,14 @@
+-- BUOC 1 - XOA CAC BANG KHONG CON DUOC ENTITY SU DUNG
+-- BACKUP DATABASE TRUOC KHI CHAY.
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS san_pham_yeu_thich;
+DROP TABLE IF EXISTS thong_bao;
+DROP TABLE IF EXISTS thong_so_san_pham;
+DROP TABLE IF EXISTS lich_su_trang_thai_don_hang;
+DROP TABLE IF EXISTS su_dung_ma_giam_gia;
+DROP TABLE IF EXISTS danh_gia_hinh_anh;
+DROP TABLE IF EXISTS doi_tra_hinh_anh;
+
+SET FOREIGN_KEY_CHECKS = 1;
