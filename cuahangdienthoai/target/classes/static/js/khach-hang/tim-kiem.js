@@ -1,0 +1,7 @@
+/* Tim kiem va loc san pham (thanh tim kiem, chon dong may, khoang gia). */
+function goSeries(s){location.hash='';setTimeout(()=>{const x=document.getElementById('search');if(x)x.value=s;refreshProducts(s);document.getElementById('products-section')?.scrollIntoView({behavior:'smooth'})},30)}
+function searchProductsFromNav(){const q=document.getElementById('navSearch')?.value?.trim()||'';if(location.hash)location.hash='';setTimeout(()=>{const x=document.getElementById('search');if(x)x.value=q;refreshProducts(q)},30)}
+function filterModel(q){const input=document.getElementById('search');if(input)input.value=q;document.querySelectorAll('.quick-links button').forEach(b=>b.classList.remove('active'));event?.currentTarget?.classList.add('active');refreshProducts(q)}
+async function loadFilters(){return;}
+async function refreshProducts(q='',category='',min='',max=''){try{const d=await loadProducts(q,category,min||val('minPrice'),max||val('maxPrice'));document.getElementById('products').innerHTML=`<div class="grid">${(d.content||[]).map(productCard).join('')}</div>`||'<div class="panel">Chưa có sản phẩm.</div>'}catch(e){document.getElementById('products').innerHTML=`<div class="panel error">${esc(e.message)}</div>`}}
+function searchProducts(){refreshProducts(val('search'),'',val('minPrice'),val('maxPrice'))} function filterAll(){document.getElementById('search').value='';document.getElementById('minPrice').value='';document.getElementById('maxPrice').value='';refreshProducts()}
